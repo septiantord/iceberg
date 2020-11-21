@@ -1,0 +1,66 @@
+html {
+  /*font: small/1.4 "Lucida Grande", Tahoma, sans-serif;*/
+  font: small/1.4 "Times New Roman", Tahoma, sans-serif;
+}
+body {
+  font-size: 92%;
+}
+#nav ,#menu, #submenu{
+  margin: 0;    
+  padding: 0;
+  background: #2554C7;
+
+  list-style-type: none;
+  width: 180px;
+  float: left; /* Contain floated list items */
+}
+#show , #menufull {
+  margin: 0;
+  padding: 0;
+  float: left; /* This corrects the */
+  width: 100%; /* IE whitespace bug */
+}
+#nav a,#menu {    
+  display: block;  
+  color: #FFF;
+  text-decoration: none;
+  padding: 0 10px;
+  line-height: 1.25;
+  border-bottom: 1px solid #FFF;
+}
+#nav #nav_con a{
+  border: none;
+}
+#nav a:hover, #menu:hover{  
+  /*background: #4F4532;*/
+  background: #5786F9;
+}
+#body_hom #nav_hom a, #submenu, #menu
+    #body_map #nav_map a,#body_jou #nav_jou a,
+    #body_his #nav_his a,#body_ref #nav_ref a,
+    #body_con #nav_con a {
+  /*background: #BEB06F;*/
+  background: #87CEEB;
+  color: #1A1303;
+  font-weight: bold;
+}
+.slider{
+	display:none;
+}
+.collapseSlider{
+	display:none;
+}
+.sliderExpanded .collapseSlider{
+	display:block;
+}
+.sliderExpanded .expandSlider{
+	display:none;
+}
+.toggler:hover,
+.closeSlider:hover{
+	cursor:pointer;
+}
+.toggler:hover,
+.closeSliderB:hover{
+	cursor:pointer;
+}

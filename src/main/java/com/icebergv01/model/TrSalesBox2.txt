@@ -1,0 +1,53 @@
+package com.icebergv01.model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+
+/**
+ * The persistent class for the tr_sales_box database table.
+ * 
+ */
+@Entity
+@Table(name="tr_sales_box")
+@NamedQuery(name="TrSalesBox.findAll", query="SELECT t FROM TrSalesBox t")
+public class TrSalesBox implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	private String id;
+
+	@Column(name="TR_SALES_ID")
+	private String trSalesId;
+
+	@Column(name="UOM_BOX_ID")
+	private String uomBoxId;
+
+	public TrSalesBox() {
+	}
+
+	public String getId() {
+		return this.id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getTrSalesId() {
+		return this.trSalesId;
+	}
+
+	public void setTrSalesId(String trSalesId) {
+		this.trSalesId = trSalesId;
+	}
+
+	public String getUomBoxId() {
+		return this.uomBoxId;
+	}
+
+	public void setUomBoxId(String uomBoxId) {
+		this.uomBoxId = uomBoxId;
+	}
+
+}

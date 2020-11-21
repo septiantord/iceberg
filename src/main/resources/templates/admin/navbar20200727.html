@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>AdminLTE</title>
+</head>
+<body class="hold-transition sidebar-mini">
+
+	<!-- Main Sidebar Container -->
+
+	<!-- Brand Logo -->
+
+	<!-- Sidebar -->
+	<div class="sidebar">
+		<!-- Sidebar Menu -->
+		<nav class="mt-2" th:fragment="navbar">
+			<ul class="nav nav-pills nav-sidebar flex-column"
+				data-widget="treeview" role="menu" data-accordion="false">
+
+				<li th:each="navbar : ${navbars}" class="nav-item has-treeview"
+					th:if="${navbar.isParent == 'X' and navbar.hasChild == 'X'}"><a
+					href="#" class="nav-link"> <i
+						class="nav-icon fas fa-tachometer-alt"></i>
+						<p th:text="${navbar.label}">
+							<i class="right fas fa-angle-left"></i>
+						</p>
+				</a>
+					<ul class="nav nav-treeview">
+						<li th:each="navbarChild : ${navbarsChild}" class="nav-item"
+							th:if="${navbarChild.isParent == '' and navbarChild.hasChild == '' 
+						and navbarChild.status == 'CF' and navbarChild.parentId == navbar.id}"><a
+							class="nav-link" th:href="${navbarChild.urlAddr}"> <i
+								class="far fa-circle nav-icon"></i>
+								<p th:text="${navbarChild.label}"></p>
+						</a></li>
+						<li th:each="navbarChild : ${navbarsChild}" class="nav-item"
+							th:if="${navbarChild.isParent == '' and navbarChild.hasChild == '' 
+						and navbarChild.status == 'CM' and navbarChild.parentId == navbar.id}"><a
+							th:href="${navbarChild.urlAddr}" class="nav-link"> <i
+								class="far fa-circle nav-icon"></i>
+								<p th:text="${navbarChild.label}"></p>
+						</a></li>
+						<li th:each="navbarChild : ${navbarsChild}" class="nav-item"
+							th:if="${navbarChild.isParent == '' and navbarChild.hasChild == '' 
+						and navbarChild.status == 'CL' and navbarChild.parentId == navbar.id}"><a
+							th:href="${navbarChild.urlAddr}" class="nav-link"> <i
+								class="far fa-circle nav-icon"></i>
+								<p th:text="${navbarChild.label}"></p>
+						</a></li>
+						<li th:each="navbarChild : ${navbarsChild}" class="nav-item"
+							th:if="${navbarChild.isParent == '' and navbarChild.hasChild == '' 
+						and navbarChild.status == 'LA' and navbarChild.parentId == navbar.id}">
+							<a th:href="${navbarChild.urlAddr}" class="nav-link"><i
+								class="far fa-circle nav-icon"></i>
+								<p th:text="${navbarChild.label}"></p> </a>
+						</li>
+					</ul></li>
+			</ul>
+		</nav>
+		<!-- /.sidebar-menu -->
+	</div>
+	<!-- /.sidebar -->
+</body>
+</html>

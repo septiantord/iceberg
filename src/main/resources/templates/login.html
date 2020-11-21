@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Iceberg</title>
+<!-- <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/> -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- <link rel="stylesheet"
+	href="static/plugins/icheck-bootstrap/icheck-bootstrap.min.css"
+	th:href="@{/plugins/icheck-bootstrap/icheck-bootstrap.min.css}"> -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- <script href="static/plugins/jquery/jquery.min.js"
+	th:src="@{/plugins/jquery/jquery.min.js}"></script> -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- <script href="static/plugins/bootstrap/js/bootstrap.min.js"
+	th:src="@{/plugins/bootstrap/js/bootstrap.min.js}"></script> -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+<link rel="stylesheet" type="text/css" href="static/css/index.css"
+	th:href="@{/css/index.css}">
+
+</head>
+
+<body>
+	<div class="modal-dialog text-center">
+		<div class="col-sm-8 main-section">
+			<div class="modal-content">
+				<div class="col-12 user-img">
+					<img src="static/img/user.png" th:src="@{/img/user.png}" />
+				</div>
+
+				<form th:action="@{/registration}" method="get">
+					<button class="btn btn-md btn-warning btn-block" type="Submit">Go
+						To Registration Page</button>
+				</form>
+
+				<!-- <div class="container"> -->
+				<div>
+					<!-- <img th:src="@{/img/login.jpg}"
+						class="img-responsive center-block" width="300" height="300"
+						alt="Logo" /> -->
+					<form th:action="@{/login}" method="POST" class="form-signin">
+						<h3 class="form-signin-heading" th:text="Welcome"></h3>
+						<br /> <input type="text" id="user_name" name="user_name"
+							placeholder="User Name" class="form-control" /> <br /> <input
+							type="password" th:placeholder="Password" id="password"
+							name="password" class="form-control" /> <br />
+
+						<div align="center" th:if="${param.error}">
+							<p style="font-size: 20; color: #FF1C19;">User Name or
+								Password invalid, please verify</p>
+						</div>
+						<button class="btn btn-lg btn-primary btn-block" name="Submit"
+							value="Login" type="Submit" th:text="Login"></button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

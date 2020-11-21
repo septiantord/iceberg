@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>AdminLTE 3 | Index</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="static/plugins/fontawesome-free/css/all.min.css"
+	th:href="@{/plugins/fontawesome-free/css/all.min.css}">
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Tempusdominus Bbootstrap 4 -->
+<link rel="stylesheet"
+	href="static/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"
+	th:href="@{/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css}">
+<!-- iCheck -->
+<link rel="stylesheet"
+	href="static/plugins/icheck-bootstrap/icheck-bootstrap.min.css"
+	th:href="@{/plugins/icheck-bootstrap/icheck-bootstrap.min.css}">
+<!-- JQVMap -->
+<link rel="stylesheet" href="static/plugins/jqvmap/jqvmap.min.css"
+	th:href="@{/plugins/jqvmap/jqvmap.min.css}">
+<!-- Theme style -->
+<link rel="stylesheet" href="static/adminlte.min.css"
+	th:href="@{/adminlte.min.css}">
+<!-- overlayScrollbars -->
+<link rel="stylesheet"
+	href="static/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"
+	th:href="@{/plugins/overlayScrollbars/css/OverlayScrollbars.min.css}">
+<!-- Daterange picker -->
+<link rel="stylesheet"
+	href="static/plugins/daterangepicker/daterangepicker.css"
+	th:href="@{/plugins/daterangepicker/daterangepicker.css}">
+<!-- summernote -->
+<link rel="stylesheet"
+	href="static/plugins/summernote/summernote-bs4.css"
+	th:href="@{/plugins/summernote/summernote-bs4.css}">
+
+<!--   <link rel="stylesheet" type="text/css" href="static/css/index.css"
+	th:href="@{/css/index.css}"> -->
+<!-- Google Font: Source Sans Pro -->
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
+	rel="stylesheet">	
+	<!-- DataTables -->
+  <link rel="stylesheet" th:href="@{/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css}">
+  <link rel="stylesheet" th:href="@{/plugins/datatables-responsive/css/responsive.bootstrap4.min.css}">
+ 
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Main content -->
+			<section class="content" th:fragment="indexcompany">
+				<div class="container-fluid">
+					<!-- SELECT2 EXAMPLE -->
+					<!-- <div class="card card-default"> -->
+					<div class="card">
+						<div class="card-header">
+							<h3 class="card-title">Company Form</h3>
+							<div class="card-tools">
+								<button type="button" class="btn btn-tool"
+									data-card-widget="collapse">
+									<i class="fas fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-tool"
+									data-card-widget="remove">
+									<i class="fas fa-times"></i>
+								</button>
+							</div>
+						</div>
+						<!-- /.card-header -->
+						<div class="card-body">
+							<form action="#" th:action="@{/sys-admin/company/save}"
+								th:object="${uomComp}" method="post" class="form-horizontal">
+								<label for="detail" class="col-sm-2 col-form-label"></label>
+								<div class="form-group row">
+									<label for="id" class="col-sm-2 col-form-label">ID</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="id"
+											placeholder="ID" th:field="*{id}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="name" class="col-sm-2 col-form-label">Name</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="name"
+											placeholder="Name" th:field="*{name}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="taxNumber" class="col-sm-2 col-form-label">Tax
+										Number</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="taxNumber"
+											placeholder="Tax Number" th:field="*{taxNumber}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="detail" class="col-sm-2 col-form-label">Detail</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="detail"
+											placeholder="Detail" th:field="*{detail}">
+									</div>
+								</div>
+							</form>
+							<!-- /.card-body -->
+						</div>
+						<div class="card-footer"></div>
+					</div>
+					<div class="card">
+						<div class="card-header">
+							<h3 class="card-title">DataTable with default features</h3>
+						</div>
+						<!-- /.card-header -->
+						<div class="card-body">
+							<table id="example1" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Detail</th>
+										<th>Name</th>
+										<th>Tax Number</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="uomComp : ${listUomComp}">
+										<!-- <form th:action="@{'/sys-admin/company/edit/' + ${uomComp.id}}"th:object="${uomMenu}" method="post"> -->
+										<td th:text="${uomComp.id}"></td>
+										<td th:text="${uomComp.detail}"></td>
+										<td th:text="${uomComp.name}"></td>
+										<td th:text="${uomComp.taxNumber}"></td>
+										<td>
+											<!-- <input type="submit" th:value="${uomComp.id}"
+											th:id="${uomComp.id}" th:name="uomCompAction" 
+											th:action="@{/sys-admin/company/edit1}"/> --> <a
+											th:href="@{'/sys-admin/company/edit/' + ${uomComp.id}}">Edit</a>
+											&nbsp;&nbsp;&nbsp; <a
+											th:href="@{'/sys-admin/company/delete/' + ${uomComp.id}}">Delete</a>
+										</td>
+										<!-- </form> -->
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>ID</th>
+										<th>Detail</th>
+										<th>Name</th>
+										<th>Tax Number</th>
+										<th>Action</th>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+						<!-- /.card-body -->
+					</div>
+					<!-- /.card -->
+					<div class="card card-default"></div>
+				</div>
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer">
+			<strong>Copyright &copy; 2014-2019 <a
+				href="http://adminlte.io">AdminLTE.io</a>.
+			</strong> All rights reserved.
+			<div class="float-right d-none d-sm-inline-block">
+				<b>Version</b> 3.0.5
+			</div>
+		</footer>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- ./wrapper -->
+
+	
+</body>
+</html>

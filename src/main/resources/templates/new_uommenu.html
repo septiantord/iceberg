@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Create New Menu</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Create New Menu</h1>
+        <br />
+        <form action="#" th:action="@{/admin/menu/save}" th:object="${uomMenu}"
+            method="post">
+ 
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Menu ID:</td>
+                    <td><input type="text" th:field="*{id}" /></td>
+                </tr>
+                <tr>
+                    <td>Detail:</td>
+                    <td><input type="text" th:field="*{detail}" /></td>
+                </tr>
+                <tr>
+                    <td>Label:</td>
+                    <td><input type="text" th:field="*{label}" /></td>
+                </tr>
+                <tr>
+                    <td>Parent ID:</td>
+                    <td><input type="text" th:field="*{parentId}" /></td>
+                </tr>
+                <tr>
+                    <td>Url Addr:</td>
+                    <td><input type="text" th:field="*{urlAddr}" /></td>
+                </tr>                     
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="static/plugins/fontawesome-free/css/all.min.css"
+	th:href="@{/plugins/fontawesome-free/css/all.min.css}">
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Tempusdominus Bbootstrap 4 -->
+<link rel="stylesheet"
+	href="static/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"
+	th:href="@{/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css}">
+<!-- iCheck -->
+<link rel="stylesheet"
+	href="static/plugins/icheck-bootstrap/icheck-bootstrap.min.css"
+	th:href="@{/plugins/icheck-bootstrap/icheck-bootstrap.min.css}">
+<!-- JQVMap -->
+<link rel="stylesheet" href="static/plugins/jqvmap/jqvmap.min.css"
+	th:href="@{/plugins/jqvmap/jqvmap.min.css}">
+<!-- Theme style -->
+<link rel="stylesheet" href="static/adminlte.min.css"
+	th:href="@{/adminlte.min.css}">
+<!-- overlayScrollbars -->
+<link rel="stylesheet"
+	href="static/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"
+	th:href="@{/plugins/overlayScrollbars/css/OverlayScrollbars.min.css}">
+<!-- Daterange picker -->
+<link th:rel="stylesheet" th:href="@{/css/daterangepicker.css}" />
+<link rel="stylesheet"
+	href="static/plugins/daterangepicker/daterangepicker.css"
+	th:href="@{/plugins/daterangepicker/daterangepicker.css}">
+<!-- summernote -->
+<link rel="stylesheet"
+	href="static/plugins/summernote/summernote-bs4.css"
+	th:href="@{/plugins/summernote/summernote-bs4.css}">
+
+<!--   <link rel="stylesheet" type="text/css" href="static/css/index.css"
+	th:href="@{/css/index.css}"> -->
+<!-- Google Font: Source Sans Pro -->
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
+	rel="stylesheet">
+
+</head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>AdminLTE 3 | Index</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Font Awesome -->
+<!-- <link rel="stylesheet"
+	href="static/plugins/fontawesome-free/css/all.min.css"
+	th:href="@{/plugins/fontawesome-free/css/all.min.css}"> -->
+<!-- Ionicons -->
+<!-- <link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+<!-- Tempusdominus Bbootstrap 4 -->
+<!-- <link rel="stylesheet"
+	href="static/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"
+	th:href="@{/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css}"> -->
+<!-- iCheck -->
+<!-- <link rel="stylesheet"
+	href="static/plugins/icheck-bootstrap/icheck-bootstrap.min.css"
+	th:href="@{/plugins/icheck-bootstrap/icheck-bootstrap.min.css}"> -->
+<!-- JQVMap -->
+<!-- <link rel="stylesheet" href="static/plugins/jqvmap/jqvmap.min.css"
+	th:href="@{/plugins/jqvmap/jqvmap.min.css}"> -->
+<!-- Theme style -->
+<!-- <link rel="stylesheet" href="static/adminlte.min.css"
+	th:href="@{/adminlte.min.css}"> -->
+<!-- overlayScrollbars -->
+<!-- <link rel="stylesheet"
+	href="static/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"
+	th:href="@{/plugins/overlayScrollbars/css/OverlayScrollbars.min.css}"> -->
+<!-- Daterange picker -->
+<!-- <link rel="stylesheet"
+	href="static/plugins/daterangepicker/daterangepicker.css"
+	th:href="@{/plugins/daterangepicker/daterangepicker.css}"> -->
+<!-- summernote -->
+<!-- <link rel="stylesheet"
+	href="static/plugins/summernote/summernote-bs4.css"
+	th:href="@{/plugins/summernote/summernote-bs4.css}"> -->
+
+<!--   <link rel="stylesheet" type="text/css" href="static/css/index.css"
+	th:href="@{/css/index.css}"> -->
+<!-- Google Font: Source Sans Pro -->
+<!-- <link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
+	rel="stylesheet"> -->
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Main content -->
+
+			<section class="content" th:fragment="reportsales">
+				<form action="#" th:action="@{/user/sales/reportdisplaydata}"
+					th:object="${trSalesHelper}" method="get" class="form-horizontal">
+					<div class="container-fluid">
+						<!-- SELECT2 EXAMPLE -->
+						<!-- <div class="card card-default"> -->
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">Sales Form</h3>
+
+								<div class="card-tools">
+									<button type="button" class="btn btn-tool"
+										data-card-widget="collapse">
+										<i class="fas fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-tool"
+										data-card-widget="remove">
+										<i class="fas fa-times"></i>
+									</button>
+								</div>
+							</div>
+							<!-- /.card-header -->
+							<div class="card-body">
+								<label for="detail" class="col-sm-2 col-form-label"></label>
+								<div class="form-group row">
+									<label for="id" class="col-sm-2 col-form-label">ID</label>
+									<div class="col-sm-1">
+										<input type="text" class="form-control" id="id"
+											placeholder="ID"
+											th:field="*{uosBusinessPartnerHelper.uosBusinessPartnerId}">
+									</div>
+									<div class="col-sm-3">
+										<button type="button" class="btn btn-default"
+											data-toggle="modal" data-target="#modal-lg">Choose
+											Business Partner</button>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="name" class="col-sm-2 col-form-label">
+										Description</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="firstName"
+											placeholder="firstName"
+											th:field="*{uosBusinessPartnerHelper.firstName}" th:disabled="true">
+									</div>
+									<div class="col-sm-2">
+										<input type="text" class="form-control" id="middleName"
+											placeholder="middleName"
+											th:field="*{uosBusinessPartnerHelper.middleName}" th:disabled="true">
+									</div>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="lastName"
+											placeholder="lastName"
+											th:field="*{uosBusinessPartnerHelper.lastName}" th:disabled="true">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="name" class="col-sm-2 col-form-label">Address
+										& Phone Number</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="address"
+											placeholder="address"
+											th:field="*{uosBusinessPartnerHelper.address}">
+									</div>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="phoneNumber"
+											placeholder="phoneNumber"
+											th:field="*{uosBusinessPartnerHelper.phoneNumber}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="deliveredBy" class="col-sm-2 col-form-label">Delivered
+										By</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="deliveredBy"
+											placeholder="deliveredBy" th:field="*{trSales.deliveredBy}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="dateRange" class="col-sm-2 col-form-label">Date
+										Range</label>
+									<div class="col-sm-10">
+										<!-- <input type="text" class="form-control" id="dateRange"
+											placeholder="dateRange" th:field="*{dateRange}"> -->
+										<div class="input-group">
+											<input type="text" class="form-control" id="dateRange"
+												autocomplete="off" th:field="*{dateRange}" />
+											<div class="input-group-append">
+												<span class="input-group-text"><i
+													class="far fa-calendar-alt"></i></span>
+											</div>
+										</div>
+										<!-- <div class="input-group">
+											<div class="input-group-prepend">
+												<span class="input-group-text"> <i
+													class="far fa-calendar-alt"></i>
+												</span>
+											</div>
+											<input type="text" class="form-control float-right"
+												id="reservation">
+										</div> -->
+										<input type="hidden" name="dateFrom" id="dateFrom"
+											th:field="*{dateRange.dateFrom}" /> <input type="hidden" id="dateTo"
+											name="dateTo" th:field="*{dateRange.dateTo}" />
+									</div>
+								</div>
+								<div class="form-group row">
+								<label for="dateRange" class="col-sm-2 col-form-label">Date
+										Range</label>
+										<div class="col-sm-10">
+										<div class="form-group">
+                <label>Date and time range:</label>
+
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-clock-o"></i>
+                  </div>
+                  <input type="text" class="form-control pull-right" id="reservationtime">
+                </div>
+                <!-- /.input group -->
+              </div>
+										</div>
+								</div>
+								<div class="form-group row">
+									<label for="idMaterial" class="col-sm-2 col-form-label">Material ID</label>
+									<div class="col-sm-1">
+										<input type="text" class="form-control" id="idMaterial"
+											placeholder="ID Material"
+											th:field="*{uomMaterial.id}">
+									</div>
+									<div class="col-sm-3">
+										<button type="button" class="btn btn-default"
+											data-toggle="modal" data-target="#modal-lg-material">Choose
+											Material</button>
+									</div>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="materialDescription"
+											placeholder="materialDescription"
+											th:field="*{uomMaterial.description}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="totalPrice" class="col-sm-2 col-form-label">Total
+										Price</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="totalPrice"
+											placeholder="totalPrice" th:field="*{trSales.totalPrice}"
+											th:align="right" th:disabled="true">
+										<!-- <input type="text" class="form-control" id="totalPrice"
+											placeholder="totalPrice" th:field="*{#numbers.formatDecimal(trSales.totalPrice, 0, 'COMMA', 2, 'POINT')}"> -->
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-5">
+									</div>
+									<div class="col-sm-1">
+										<button type="submit" class="btn btn-primary">Submit</button>
+									</div>
+								</div>
+							</div>
+							<div class="card-footer"></div>
+						</div>
+						<!-- <div class="card">
+							<div class="card-header">
+								<h3 class="card-title"></h3>
+								<div class="card-tools">
+									<button type="button" class="btn btn-tool"
+										data-card-widget="collapse">
+										<i class="fas fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-tool"
+										data-card-widget="remove">
+										<i class="fas fa-times"></i>
+									</button>
+								</div>
+							</div>
+							<div class="card-body">
+							</div>
+							<div class="card-footer"></div>
+						</div> -->
+						<div class="card">
+						<div class="card-header">
+							<h3 class="card-title">Sales</h3>
+						</div>
+						<div class="card-body">
+							<div class="col-sm-12">
+								<!-- <table id="dataTableUomMaterial" -->
+								<table id="dataTableTrSales"
+									class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>Identity No</th>
+											<th>Created Date</th>
+											<th>Created By</th>
+											<th>Delivered By</th>
+											<th>Payment Received By</th>
+											<th>Delivery Cost</th>
+											<th>Total Price</th>
+											<th>Business Partner Id</th>
+											<th>Business Partner Name</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="trSalesObject,rowStat : *{listTrSales}">
+											<td th:text="${trSalesObject.identityNo}"></td>
+											<td th:text="${trSalesObject.createdDate}"></td>
+											<td th:text="${trSalesObject.createdBy}"></td>
+											<td th:text="${trSalesObject.deliveredBy}"></td>
+											<td th:text="${trSalesObject.paymentReceivedBy}"></td>
+											<td th:text="${trSalesObject.deliveryCost}"
+												th:align="right"></td>
+											<td th:text="${trSalesObject.totalPrice}"
+												th:align="right"></td>
+											<td th:text="${trSalesObject.uosBusinessPartnerId}"></td>
+											<td th:text="${trSalesObject.uosBusinessPartner.firstName}"></td>
+											
+											<!-- <td></td>
+											<td></td>
+											<td th:align="right"></td> -->
+											
+											<!-- <input type="hidden" placeholder="id"
+												th:field="*{listTrSalesDetail[__${rowStat.index}__].uomMaterial.id}"
+												th:value="${trSalesDetail.uomMaterial.id}"
+												name="${trSalesDetail.uomMaterial.id}">
+											<input type="hidden" placeholder="description"
+												th:field="*{listTrSalesDetail[__${rowStat.index}__].uomMaterial.description}"
+												th:value="${trSalesDetail.uomMaterial.description}"
+												name="${trSalesDetail.uomMaterial.description}">
+											<input type="hidden" placeholder="price"
+												th:field="*{listTrSalesDetail[__${rowStat.index}__].uomMaterial.price}"
+												th:value="${trSalesDetail.uomMaterial.price}"
+												name="${trSalesDetail.uomMaterial.price}" th:align="right"> -->
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<th>ID</th>
+											<th>Description</th>
+											<th>Price</th>
+											<th>Qty</th>
+											<th>Notes</th>
+											<th>Subtotal</th>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+						</div>
+					</div>
+						<!-- /.card -->
+						<div class="card card-default"></div>
+					</div>
+					<div class="modal fade" id="modal-lg">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title">Business Partner</h4>
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<table id="dataTableBusinessPartner"
+										class="table table-bordered table-striped">
+										<!-- <table id="dataTableBusinessPartner" > -->
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>First Name</th>
+												<th>Middle Name</th>
+												<th>Last Name</th>
+												<th>Address</th>
+												<th>Phone number</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr
+												th:each="uosBusinessPartnerHelper : ${trSalesHelper.listUosBusinessPartnerHelper}">
+												<!-- <form th:action="@{'/sys-admin/company/edit/' + ${uomMaterial.id}}"th:object="${uomMenu}" method="post"> -->
+												<td
+													th:text="${uosBusinessPartnerHelper.uosBusinessPartner.id}"></td>
+												<td
+													th:text="${uosBusinessPartnerHelper.uosBusinessPartner.firstName}"></td>
+												<td
+													th:text="${uosBusinessPartnerHelper.uosBusinessPartner.middleName}"></td>
+												<td
+													th:text="${uosBusinessPartnerHelper.uosBusinessPartner.lastName}"></td>
+												<td
+													th:text="${uosBusinessPartnerHelper.uosBusinessPartnerAddr.address}"></td>
+												<td
+													th:text="${uosBusinessPartnerHelper.uosBusinessPartnerPhon.number}"></td>
+												<!-- </form> -->
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<th>ID</th>
+												<th>First Name</th>
+												<th>Middle Name</th>
+												<th>Last Name</th>
+												<th>Address</th>
+												<th>Phone number</th>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+								<div class="modal-footer justify-content-between">
+									<button type="button" class="close" data-dismiss="modal"
+										style="display: none;">Close</button>
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-primary">Save
+										changes</button>
+								</div>
+							</div>
+							<!-- /.modal-content -->
+						</div>
+						<!-- /.modal-dialog -->
+					</div>
+					<div class="modal fade" id="modal-lg-material">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title">Material</h4>
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<table id="dataTableUomMaterialModal"
+										class="table table-bordered table-striped">
+										<!-- <table id="dataTableBusinessPartner" > -->
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>Description</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr
+												th:each="uomMaterial : ${trSalesHelper.listUomMaterial}">
+												<!-- <form th:action="@{'/sys-admin/company/edit/' + ${uomMaterial.id}}"th:object="${uomMenu}" method="post"> -->
+												<td
+													th:text="${uomMaterial.id}"></td>
+												<td
+													th:text="${uomMaterial.description}"></td>
+												<!-- <td
+													th:text="${uosBusinessPartnerHelper.uosBusinessPartner.middleName}"></td>
+												<td
+													th:text="${uosBusinessPartnerHelper.uosBusinessPartner.lastName}"></td>
+												<td
+													th:text="${uosBusinessPartnerHelper.uosBusinessPartnerAddr.address}"></td>
+												<td
+													th:text="${uosBusinessPartnerHelper.uosBusinessPartnerPhon.number}"></td> -->
+												<!-- </form> -->
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<th>ID</th>
+												<th>Description</th>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+								<div class="modal-footer justify-content-between">
+									<button type="button" class="close" data-dismiss="modal"
+										style="display: none;">Close</button>
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
+									<!-- <button type="button" class="btn btn-primary">Save
+										changes</button> -->
+								</div>
+							</div>
+							<!-- /.modal-content -->
+						</div>
+						<!-- /.modal-dialog -->
+					</div>
+				</form>
+			</section>
+			<!-- /.content -->
+
+		</div>
+		<!-- /.content-wrapper -->
+
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- <script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+<script
+		th:src="@{/plugins/select2/js/select2.full.min.js}"></script>
+		
+	<script 
+		th:src="@{/plugins/moment/moment.min.js}"></script>
+<script th:src="@{/plugins/inputmask/min/jquery.inputmask.bundle.min.js}"></script>
+	<script 
+		th:src="@{/plugins/daterangepicker/daterangepicker.js}"></script>
+	<script
+		href="static/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"
+		th:src="@{/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js}"></script>
+ -->
+
+</body>
+</html>

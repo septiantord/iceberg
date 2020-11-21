@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>uomMenu Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>uomMenu List</h1>
+    <a href="/admin/menu/new">Create New Menu</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Menu ID</th>
+                <th>Detail</th>
+                <th>Label</th>
+                <th>Parent Id</th>
+                <th>Url Addr</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="uomMenu : ${listUomMenus}">
+                <td th:text="${uomMenu.id}">Menu ID</td>
+                <td th:text="${uomMenu.detail}">Detail</td>
+                <td th:text="${uomMenu.label}">Label</td>
+                <td th:text="${uomMenu.parentId}">Parent Id</td>
+                <td th:text="${uomMenu.urlAddr}">Url Addr</td>
+                <td>
+                   <a th:href="@{'/admin/menu/edit/' + ${uomMenu.id}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{/admin/menu/delete/'${uomMenu.id}'}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>

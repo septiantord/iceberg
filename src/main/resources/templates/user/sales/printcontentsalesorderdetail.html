@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>AdminLTE 3 | Invoice Print</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap 4 -->
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="static/plugins/fontawesome-free/css/all.min.css"
+	th:href="@{/plugins/fontawesome-free/css/all.min.css}">
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="static/adminlte.min.css"
+	th:href="@{/adminlte.min.css}">
+
+<!-- Google Font: Source Sans Pro -->
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
+	rel="stylesheet">
+</head>
+<body>
+	<div class="wrapper">
+		<!-- Main content -->
+		<section class="salesorderdetail">
+			<!-- title row -->
+			<div class="row">
+				<div class="col-3">
+					<h2 class="page-header">
+						<i class="fas fa-globe"></i> AdminLTE, Inc. 
+						<!-- <small
+							class="float-right">Date: <label
+							th:text="${trSalesHelper.trSales.createdDate}"></label></small> -->
+					</h2>
+				</div>
+				<div class="col-3">
+					<small class="float-right">Date: <label
+						th:text="${trSalesHelper.trSales.createdDate}"></label></small>
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- info row -->
+			<div class="row invoice-info">
+				<div class="col-sm-2 invoice-col">
+					From
+					<address>
+						<small> <strong>Admin, Inc.</strong><br> 
+							<!-- 795 Folsom
+							Ave, Suite 600<br> San Francisco, CA 94107<br> Phone:
+							(804) 123-5432<br> Email: info@almasaeedstudio.com -->
+						</small>
+					</address>
+				</div>
+				<!-- /.col -->
+				<div class="col-sm-2 invoice-col">
+					<small> To
+						<address>
+							<strong
+								th:text="${#strings.trim(trSalesHelper.uosBusinessPartnerHelper.uosBusinessPartnerId)}">
+								<!-- <p ></p> -->
+							</strong> <br> <label
+								th:text="${#strings.trim(trSalesHelper.uosBusinessPartnerHelper.firstName)}"></label>
+							<br> <label
+								th:text="${#strings.trim(trSalesHelper.uosBusinessPartnerHelper.address)}"></label>
+							<!-- <br><label  th:text="${#strings.trim(trSalesHelper.uosBusinessPartnerHelper.city)}"></label> -->
+							<br> <label
+								th:text="${#strings.trim(trSalesHelper.uosBusinessPartnerHelper.phoneNumber)}"></label>
+						</address>
+					</small>
+				</div>
+				<!-- /.col -->
+				<div class="col-sm-2 invoice-col">
+					<b>Invoice <label th:text="${trSalesHelper.trSales.identityNo}"></label>
+					</b> <br> <small class="float-right"> <b>Order ID:</b> <label
+						th:text="${trSalesHelper.trSales.id}"></label></small>
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- /.row -->
+
+			<!-- Table row -->
+			<div class="row">
+				<div class="col-6 table-responsive">
+					<table class="table table-striped" width="100%">
+						<col style="width: 10%">
+						<col style="width: 20%">
+						<col style="width: 35%">
+						<col style="width: 35%">
+						<thead>
+							<tr>
+								<th>Qty</th>
+								<th>Product</th>
+								<th>Description</th>
+								<th>Notes</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								th:each="trSalesDetail,rowStat : ${trSalesHelper.listTrSalesDetail}">
+								<td th:text="${trSalesDetail.qty}"></td>
+								<td th:text="${trSalesDetail.uomMaterial.id}"></td>
+								<td th:text="${trSalesDetail.uomMaterial.description}"></td>
+								<td
+									th:utext="${#strings.replace( #strings.escapeXml( trSalesDetail.notes ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div>
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- /.row -->
+
+			<div class="row">
+				<!-- accepted payments column -->
+				<!-- <div class="col-6"> -->
+				<!-- 					<p class="lead">Payment Methods:</p>
+					<img src="../../dist/img/credit/visa.png" alt="Visa"> <img
+						src="../../dist/img/credit/mastercard.png" alt="Mastercard">
+					<img src="../../dist/img/credit/american-express.png"
+						alt="American Express"> <img
+						src="../../dist/img/credit/paypal2.png" alt="Paypal">
+
+					<p class="text-muted well well-sm shadow-none"
+						style="margin-top: 10px;">Etsy doostang zoodles disqus groupon
+						greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg
+						dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.</p> -->
+				<!-- </div> -->
+			</div>
+			<!-- /.row -->
+		</section>
+		<!-- /.content -->
+	</div>
+	<!-- ./wrapper -->
+<script th:inline="javascript">
+    window.addEventListener("load", myFunction);
+	function myFunction(){
+//		var a = ${"#printTagHTML"}.val();
+		var a = [[${printTagHTML}]];
+		alert(a);
+		window.print();
+	}
+</script>
+	<script type="text/javascript">
+		
+		/* window.addEventListener("load", window.print()); */
+		
+		
+		 
+	</script>
+</body>
+</html>
